@@ -38,8 +38,8 @@ window.renderStatistics = function (ctx, players, times) {
   return Math.random() * (max - min) + min;
 };
 
-var getRandomBlue = function() {var randomBlue  = 'rgba(0, 0, 255,' + getRandom(0.3, 1) + ')'; return randomBlue};
-console.log(getRandomBlue);
+  var getRandomBlue = function() {var randomBlue  = 'rgba(0, 0, 255,' + getRandom(0.3, 1) + ')'; return randomBlue};
+
   renderCloud(ctx, CLOUD_X + 10, CLOUD_Y + 10, 'rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
 
@@ -48,7 +48,7 @@ console.log(getRandomBlue);
   renderText(ctx, 'Ура вы победили!', CLOUD_X + GAP, CLOUD_Y + GAP);
   renderText(ctx, 'Список результатов:', CLOUD_X + GAP, CLOUD_Y + GAP * 1.8);
 
-  var colors = ['rgba(255, 0, 0, 1)', getRandomBlue, getRandomBlue, getRandomBlue];
+  var colors = ['rgba(255, 0, 0, 1)', getRandomBlue(), getRandomBlue(), getRandomBlue()];
 
   var graphCenter = (CLOUD_X + CLOUD_WIDTH / 2) - ((players.length * (BAR_WIDTH + GAP * 2)) - GAP * 2) / 2;
 
