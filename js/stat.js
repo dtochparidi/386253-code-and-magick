@@ -5,10 +5,9 @@ var CLOUD_HEIGHT = 270;
 var CLOUD_X = 100;
 var CLOUD_Y = 10;
 var GAP = 25;
-var FONT_GAP = 15;
 var TEXT_WIDTH = 50;
 var BAR_WIDTH = 40;
-var BAR_HEIGHT = -150;
+var BAR_HEIGHT = 150;
 
 var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
@@ -52,10 +51,10 @@ window.renderStatistics = function (ctx, players, times) {
   var graphCenter = (CLOUD_X + CLOUD_WIDTH / 2) - ((players.length * (BAR_WIDTH + GAP * 2)) - GAP * 2) / 2;
 
   for (var i = 0; i < players.length; i++) {
-    //ctx.fillText(players[i], CLOUD_X + GAP, CLOUD_Y + GAP + FONT_GAP + (GAP + BAR_HEIGHT) * i);
-    //ctx.fillRect(CLOUD_X + GAP + TEXT_WIDTH, CLOUD_Y + GAP + (GAP + BAR_HEIGHT) * i, (barWidth * times[i]) / maxTime, BAR_HEIGHT);
-    ctx.fillStyle = colors[i];
+    ctx.fillStyle = '#000000';
     ctx.fillText(players[i], graphCenter + (BAR_WIDTH + GAP * 2) * i, CLOUD_HEIGHT + CLOUD_Y - GAP / 2);
-    ctx.fillRect(graphCenter + (BAR_WIDTH + GAP * 2) * i, CLOUD_HEIGHT + CLOUD_Y - GAP - GAP / 2, BAR_WIDTH, (BAR_HEIGHT * times[i]) / maxTime);
+    ctx.fillText( Math.round(times[i]), graphCenter + (BAR_WIDTH + GAP * 2) * i, (CLOUD_HEIGHT + CLOUD_Y - GAP - GAP) + (-BAR_HEIGHT * times[i]) / maxTime);
+    ctx.fillStyle = colors[i];
+    ctx.fillRect(graphCenter + (BAR_WIDTH + GAP * 2) * i, CLOUD_HEIGHT + CLOUD_Y - GAP - GAP / 2, BAR_WIDTH, (-BAR_HEIGHT * times[i]) / maxTime);
   }
 };
