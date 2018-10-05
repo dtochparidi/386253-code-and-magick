@@ -36,17 +36,12 @@ var createWizard = function (obj) {
   return wizard;
 };
 
-var wizard1 = createWizard(wizards);
-var wizard2 = createWizard(wizards);
-var wizard3 = createWizard(wizards);
-var wizard4 = createWizard(wizards);
+var wizardR = [];
 
+for (var i = 0; i <= 3; i++) {
+  wizardR[i] = createWizard(wizards);
 
-var wizardList = document.querySelector('.setup-similar-list');
+  var wizardList = document.querySelector('.setup-similar-list');
 
-wizardList.appendChild(wizard1.cloneNode(true));
-wizardList.appendChild(wizard2.cloneNode(true));
-wizardList.appendChild(wizard3.cloneNode(true));
-wizardList.appendChild(wizard4.cloneNode(true));
-
-
+  wizardList.appendChild(wizardR[i]);
+}
